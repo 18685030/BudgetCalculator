@@ -27,6 +27,14 @@ function gather() {
   result = finance - income - rent - food - utilities - phone - social;
   savings = income * 0.20;
 
+
+document.getElementById("myBtn").addEventListener("click", displayDate);
+
+function displayDate() {
+  document.getElementById("demo").innerHTML = Date();
+}
+
+
   $(".results-data").empty();
 
   if (result === 0) {
@@ -39,5 +47,48 @@ function gather() {
       $(".results-data").append(
       '<p class="text-sucess"> After your expenses you have £' + result + ' left in your budget.</p>','<p class="text-sucess">If you can you should try to save $' + savings + ' for emergencies.</p>');
   }
+
 }
+
+
+//Collapsable content
+
+function incomeShowHide() {
+  var x = document.getElementById("box-income");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+function socialShowHide() {
+  var x = document.getElementById("box-social");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+function utilitiesShowHide() {
+  var x = document.getElementById("box-utilities");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+function consumableShowHide() {
+  var x = document.getElementById("box-consumable");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+
+
 
