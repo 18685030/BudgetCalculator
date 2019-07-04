@@ -16,12 +16,6 @@
   
 </head>
 
-
-<header>
-    <div id="header-img"><img src="assets/Budget-Header.jpg" alt="map" style="width:100%; height:150px;"></div>
-</header>
-
-
 <body>
 
 <div class="container-fluid center-me">
@@ -30,56 +24,68 @@
           <div class="col-sm-4">
       </div> 
 
+
     <button class="income-title" onclick="incomeShowHide()">Income</button>
       <div id="box-income">
         <form>
           <input class="form-control input-lg" type="text" id="finance" placeholder="Student Finance"/>
           <input class="form-control input-lg" type="text" id="income" placeholder="Income"/>
-          <input class="form-control input-lg" type="text" id="income" placeholder="Other"/>
+          <input class="form-control input-lg" type="text" id="incomeOther" placeholder="Other"/>
         </form>
       </div>
 
-    <button class="social-title" onclick="socialShowHide()">Social</button>
+
+        <button class="livingCosts-title" onclick="livingCostsShowHide()">Living Costs</button>
+      <div id="box-livingCosts">
+        <form>
+          <input class="form-control input-lg" type="text" id="household" placeholder="Household"/>
+          <input class="form-control input-lg" type="text" id="food" placeholder="Food"/>
+        </form>
+        <input class="form-control input-lg" type="text" id="clothes" placeholder="Clothes/Shoes"/>
+        </form>
+        <input class="form-control input-lg" type="text" id="equipment" placeholder="Books/Pens/Pads"/>
+        </form>
+        <input class="form-control input-lg" type="text" id="travel" placeholder="Travel"/>
+        </form>
+          <input class="form-control input-lg" type="text" id="livingCostsOther" placeholder="Other"/>
+        </form>
+      </div>
+
+
+    <button class="social-title" onclick="socialShowHide()">Social and Entertainment</button>
       <div id="box-social">
         <form>
           <input class="form-control input-lg" type="text" id="eatingOut" placeholder="Eating Out"/>
-          <input class="form-control input-lg" type="text" id="events" placeholder="Events"/>
-          <input class="form-control input-lg" type="text" id="transport" placeholder="Travel/Transport"/>
+          <input class="form-control input-lg" type="text" id="events" placeholder="Events/Tickets"/>
+        </form>
+        <input class="form-control input-lg" type="text" id="transport" placeholder="Transport"/>
+        </form>
+        <input class="form-control input-lg" type="text" id="socialOther" placeholder="Other"/>
         </form>
       </div>
 
-          <button class="utilities-title" onclick="utilitiesShowHide()">Utilities</button>
+          <button class="utilities-title" onclick="utilitiesShowHide()">Home and Utilities</button>
       <div id="box-utilities">
         <form>
           <input class="form-control input-lg" type="text" id="rent" placeholder="Rent"/>
-          <input class="form-control input-lg" type="text" id="food" placeholder="Breakfast/Lunch/Dinner"/>
           <input class="form-control input-lg" type="text" id="utilities" placeholder="Gas/Water/Electric"/>
-          <input class="form-control input-lg" type="text" id="inusurance" placeholder="Insurance"/>
-          <input class="form-control input-lg" type="text" id="phone" placeholder="Phone/Data"/>
+          <input class="form-control input-lg" type="text" id="internet" placeholder="Internet"/>
+          <input class="form-control input-lg" type="text" id="insurance" placeholder="Insurance"/>
+          <input class="form-control input-lg" type="text" id="councilTax" placeholder="Council Tax"/>
+          <input class="form-control input-lg" type="text" id="phone" placeholder="Phone"/>
+          <input class="form-control input-lg" type="text" id="utilitiesOther" placeholder="Other"/>
+        </form>
         </form>
       </div>
 
-        <button class="consumable-title" onclick="consumableShowHide()">Consumable</button>
-      <div id="box-consumable">
-        <form>
-          <input class="form-control input-lg" type="text" id="rent" placeholder="Rent"/>
-          <input class="form-control input-lg" type="text" id="food" placeholder="Breakfast/Lunch/Dinner"/>
-          <input class="form-control input-lg" type="text" id="utilities" placeholder="Gas/Water/Electric"/>
-          <input class="form-control input-lg" type="text" id="inusurance" placeholder="Insurance"/>
-          <input class="form-control input-lg" type="text" id="phone" placeholder="Phone/Data"/>
-        </form>
-      </div>
-
-
-        <button class="button">Submit</button>
+        <button class="button" id="button" onclick="add()">Submit</button>
 
 
     </div>
     <div class="col-sm-4">
       <div class="results">
-        <h1 class="title">Results</h1>
           <div class="results-data">
-            <p>Submit  to see your results!</p>
+            <p id="result">Click submit to show you you results.</p>
           </div>
       </div>
     </div>

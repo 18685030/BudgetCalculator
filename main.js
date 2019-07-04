@@ -2,6 +2,20 @@ $("button").click(gather)
 $(document).ready(centerme);
 $(window).resize(centerme);
 
+
+
+function add() {
+    var x = Number(document.getElementById('finance').value);
+    var y = Number(document.getElementById('income').value);
+
+    document.getElementById('result').innerHTML = x+y;
+    return false;
+}
+
+document.getElementById('button').addEventListener('click', add);
+
+
+
 function gather() {
   finance = document.getElementById("finance").value;
   finance = finance.replace(/\D/g,'');
@@ -11,6 +25,7 @@ function gather() {
 
   rent = document.getElementById("rent").value;
   rent = rent.replace(/\D/g,'');
+
 
   food = document.getElementById("food").value;
   food = food.replace(/\D/g,'');
@@ -26,14 +41,6 @@ function gather() {
 
   result = finance - income - rent - food - utilities - phone - social;
   savings = income * 0.20;
-
-
-document.getElementById("myBtn").addEventListener("click", displayDate);
-
-function displayDate() {
-  document.getElementById("demo").innerHTML = Date();
-}
-
 
   $(".results-data").empty();
 
@@ -80,15 +87,12 @@ function utilitiesShowHide() {
   }
 }
 
-function consumableShowHide() {
-  var x = document.getElementById("box-consumable");
+function livingCostsShowHide() {
+  var x = document.getElementById("box-livingCosts");
   if (x.style.display === "none") {
     x.style.display = "block";
   } else {
     x.style.display = "none";
   }
 }
-
-
-
 
