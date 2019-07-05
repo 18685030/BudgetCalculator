@@ -1,62 +1,86 @@
-$("button").click(gather)
-$(document).ready(centerme);
-$(window).resize(centerme);
+//variables
+
+var finance;
+var income;
+var incomeOther;
+var totalIncome;
+
+var household;
+var food;
+var clothes;
+var equipment;
+var travel;
+var livingCostsOther;
+var totallivingCosts;
+
+var eatingOut;
+var events;
+var transport;
+var socialOther;
+var totalSocialCosts;
+
+var rent;
+var utilities;
+var internet;
+var insurance;
+var councilTax;
+var phone;
+var utilitiesOther;
+var totalUtilityCosts;
+
+var total;
 
 
+//Calculations to add elements
 
 function add() {
-    var x = Number(document.getElementById('finance').value);
-    var y = Number(document.getElementById('income').value);
+  finance = Number(document.getElementById('finance').value);
+  income = Number(document.getElementById('income').value);
+  incomeOther = Number(document.getElementById('incomeOther').value);
 
-    document.getElementById('result').innerHTML = x+y;
-    return false;
+  household = Number(document.getElementById('household').value);
+  food = Number(document.getElementById('food').value);
+  clothes = Number(document.getElementById('clothes').value);
+  equipment = Number(document.getElementById('equipment').value);
+  travel = Number(document.getElementById('travel').value);
+  livingCostsOther = Number(document.getElementById('livingCostsOther').value);
+
+  eatingOut = Number(document.getElementById('eatingOut').value);
+  events = Number(document.getElementById('events').value);
+  transport = Number(document.getElementById('transport').value);
+  socialOther = Number(document.getElementById('socialOther').value);
+
+  rent = Number(document.getElementById('rent').value);
+  utilities = Number(document.getElementById('utilities').value);
+  internet = Number(document.getElementById('internet').value);
+  insurance = Number(document.getElementById('insurance').value);
+  councilTax = Number(document.getElementById('councilTax').value);
+  phone = Number(document.getElementById('phone').value);
+  utilitiesOther = Number(document.getElementById('utilitiesOther').value);
+
+
+  totalIncome = finance + income + incomeOther;
+  totalLivingCosts = household + food + clothes + equipment + travel + livingCostsOther;
+  totalSocialCosts = eatingOut + events + transport + socialOther;
+  totalUtilityCosts = rent + utilities + internet + insurance + councilTax + phone + utilitiesOther;
+
+  total = totalIncome - (totalLivingCosts + totalSocialCosts + totalUtilityCosts);
+
+console.log (totalLivingCosts + totalSocialCosts + totalUtilityCosts)
+
+  if (totalLivingCosts + totalSocialCosts + totalUtilityCosts > (totalIncome * 0.8)) {
+      $("#result").css("color", "red");
+      var str = "Ooppps. Your costs are very high !";
+      document.getElementById("result").innerHTML = str
+  } else {
+      $("#result").css("color", "green");
+      var str = "Yes. Your costs are low !";
+      document.getElementById("result").innerHTML = str
+  }
 }
 
-document.getElementById('button').addEventListener('click', add);
 
-
-
-function gather() {
-  finance = document.getElementById("finance").value;
-  finance = finance.replace(/\D/g,'');
-
-  income = document.getElementById("income").value;
-  income = income.replace(/\D/g,'');
-
-  rent = document.getElementById("rent").value;
-  rent = rent.replace(/\D/g,'');
-
-
-  food = document.getElementById("food").value;
-  food = food.replace(/\D/g,'');
-
-  utilities = document.getElementById("utilities").value;
-  utilities = utilities.replace(/\D/g,'');
-
-  phone = document.getElementById("social").value;
-  phone = phone.replace(/\D/g,'');
-
-  social = document.getElementById("social").value;
-  social = social.replace(/\D/g,'');
-
-  result = finance - income - rent - food - utilities - phone - social;
-  savings = income * 0.20;
-
-  $(".results-data").empty();
-
-  if (result === 0) {
-    $(".results-data").append('<p class="text-danger convert-emoji"> You didn\'t enter anything. Try again.</p>');
-  }
-  else if (result < 0) {
-    $(".results-data").append('<p class="text-danger"> After your expenses you have £' + result + ' left in your budget. You may want to review your budget plans.</p>');
-  }
-    else {
-      $(".results-data").append(
-      '<p class="text-sucess"> After your expenses you have £' + result + ' left in your budget.</p>','<p class="text-sucess">If you can you should try to save $' + savings + ' for emergencies.</p>');
-  }
-
-}
-
+document.getElementById('result').innerHTML = total;
 
 //Collapsable content
 
