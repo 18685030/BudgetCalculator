@@ -28,7 +28,10 @@ var phone;
 var utilitiesOther;
 var totalUtilityCosts;
 
+var totalOutgoings
 var total;
+
+var points
 
 
 //Calculations to add elements
@@ -60,21 +63,36 @@ function add() {
 
 
   totalIncome = finance + income + incomeOther;
+
   totalLivingCosts = household + food + clothes + equipment + travel + livingCostsOther;
   totalSocialCosts = eatingOut + events + transport + socialOther;
   totalUtilityCosts = rent + utilities + internet + insurance + councilTax + phone + utilitiesOther;
 
-  total = totalIncome - (totalLivingCosts + totalSocialCosts + totalUtilityCosts);
+  totalOutgoings = totalLivingCosts + totalSocialCosts + totalUtilityCosts;
+  total = totalIncome - totalOutgoings;
+
+  total = total.toFixed(2); //rounds the total down to 2dp. 
+
 
 console.log (totalLivingCosts + totalSocialCosts + totalUtilityCosts)
 
-  if (totalLivingCosts + totalSocialCosts + totalUtilityCosts > (totalIncome * 0.8)) {
+  if (totalOutgoings > totalIncome) {
       $("#result").css("color", "red");
-      var str = "Ooppps. Your costs are very high !";
+      $(".results").css("display", "block");
+      points = 0;
+      var str = "You have a total of £" + total + " remaining. Your outgoings are greater than your income. Have another look at how you can balance your budget.";
+      document.getElementById("result").innerHTML = str
+  } else if ((totalOutgoings > (totalIncome * 0.8)) && (totalOutgoings < totalIncome))  {
+      $("#result").css("color", "orange");
+      $(".results").css("display", "block");
+      points = 25;
+      var str = "You have a total of £" + total+ " remaining. Your outgoings are greater than 80% of your income. Be careful.";
       document.getElementById("result").innerHTML = str
   } else {
       $("#result").css("color", "green");
-      var str = "Yes. Your costs are low !";
+      $(".results").css("display", "block");
+      points = 40;
+      var str = "You have a total of £" + total+ " remaining. Your costs are well below your income. Well done.";
       document.getElementById("result").innerHTML = str
   }
 }
@@ -119,4 +137,5 @@ function livingCostsShowHide() {
     x.style.display = "none";
   }
 }
+
 
