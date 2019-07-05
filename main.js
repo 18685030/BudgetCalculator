@@ -108,6 +108,7 @@ console.log (totalLivingCosts + totalSocialCosts + totalUtilityCosts)
   }
 }
 
+//submit deepkink into Mendix. Assign points into deeplink.
 function submit(){
       window.top.location = "http://localhost:8080/link/completeBudget?points=" + points;
     }
