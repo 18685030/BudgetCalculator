@@ -80,13 +80,11 @@ console.log (totalLivingCosts + totalSocialCosts + totalUtilityCosts)
   if (totalOutgoings == 0) {
       $("#result").css("color", "red");
       $(".results").css("display", "block");
-      points = 0;
       var str = "You have not entered any values for your outgoings. Please try again.";
       document.getElementById("result").innerHTML = str
   } else if (totalIncome == 0) {
       $("#result").css("color", "red");
       $(".results").css("display", "block");
-      points = 0;
       var str = "You have not entered any values for your income. Please try again.";
       document.getElementById("result").innerHTML = str
   } else if (totalOutgoings > totalIncome) {
@@ -109,6 +107,10 @@ console.log (totalLivingCosts + totalSocialCosts + totalUtilityCosts)
       document.getElementById("result").innerHTML = str
   }
 }
+
+function submit(){
+      window.top.location = "http://localhost:8080/link/completeBudget?points=" + points;
+    }
 
 
 document.getElementById('result').innerHTML = total;
