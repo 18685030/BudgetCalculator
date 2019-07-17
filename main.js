@@ -76,29 +76,31 @@ function add() {
 
   console.log (totalLivingCosts + totalSocialCosts + totalUtilityCosts);
   if (totalOutgoings == 0) {
-      $("#result").css("color", "red");
+      $("#result").css("background-color", "#EC1010");
       $(".results").css("display", "block");
+      $(".submitButton").css("disabled", "true");
       var str = "You have not entered any values for your outgoings. Please try again.";
       document.getElementById("result").innerHTML = str;
   } else if (totalIncome == 0) {
-      $("#result").css("color", "red");
+      $("#result").css("background-color", "#EC1010");
       $(".results").css("display", "block");
+      $(".submitButton").css("disabled", "true");
       var str = "You have not entered any values for your income. Please try again.";
       document.getElementById("result").innerHTML = str;
   } else if (totalOutgoings > totalIncome) {
-      $("#result").css("color", "red");
+      $("#result").css("background-color", "#EC1010");
       $(".results").css("display", "block");
       points = 0;
       var str = "You have a total of £" + total + " remaining. Your outgoings are greater than your income. Have another look at how you can balance your budget.";
       document.getElementById("result").innerHTML = str;
   } else if ((totalOutgoings > (totalIncome * 0.8)) && (totalOutgoings < totalIncome))  {
-      $("#result").css("color", "orange");
+      $("#result").css("background-color", "#EC7610");
       $(".results").css("display", "block");
       points = 25;
       var str = "You have a total of £" + total+ " remaining. Your outgoings are greater than 80% of your income. Be careful.";
       document.getElementById("result").innerHTML = str;
   } else {
-      $("#result").css("color", "green");
+      $("#result").css("background-color", "#10EC10");
       $(".results").css("display", "block");
       points = 40;
       var str = "You have a total of £" + total+ " remaining. Your costs are well below your income. Well done.";
@@ -120,6 +122,7 @@ function incomeShowHide() {
   var x = $("#box-income");
   if (x.height() == 0) {
     x[0].style.display = "block";
+    $('.income-title').animate({ 'border-bottom-left-radius': '0px', 'border-bottom-right-radius': '0px' });
     x.animate({ height: heights[0], 'padding-top': '19px', 'padding-bottom': '19px' }, 500, function(){
       x.animate({ opacity: 1 }, 500);
     });
@@ -127,6 +130,7 @@ function incomeShowHide() {
     x.animate({ height: 0, 'padding-top': '0px', 'padding-bottom': '0px' }, 500, function(){
       x[0].style.display = "none";
       x[0].style.opacity = 0;
+      $('.income-title').animate({ 'border-bottom-left-radius': '10px', 'border-bottom-right-radius': '10px' });
     });
   }
 }
@@ -135,6 +139,7 @@ function socialShowHide() {
   var x = $("#box-social");
   if (x.height() == 0) {
     x[0].style.display = "block";
+    $('.social-title').animate({ 'border-bottom-left-radius': '0px', 'border-bottom-right-radius': '0px' });
     x.animate({ height: heights[1], 'padding-top': '19px', 'padding-bottom': '19px' }, 500, function(){
       x.animate({ opacity: 1 }, 500);
     });
@@ -142,6 +147,7 @@ function socialShowHide() {
     x.animate({ height: 0, 'padding-top': '0px', 'padding-bottom': '0px' }, 500, function(){
       x[0].style.display = "none";
       x[0].style.opacity = 0;
+      $('.social-title').animate({ 'border-bottom-left-radius': '10px', 'border-bottom-right-radius': '10px' });
     });
   }
 }
@@ -150,6 +156,7 @@ function utilitiesShowHide() {
   var x = $("#box-utilities");
   if (x.height() == 0) {
     x[0].style.display = "block";
+    $('.utilities-title').animate({ 'border-bottom-left-radius': '0px', 'border-bottom-right-radius': '0px' });
     x.animate({ height: heights[2], 'padding-top': '19px', 'padding-bottom': '19px' }, 500, function(){
       x.animate({ opacity: 1 }, 500);
     });
@@ -157,6 +164,7 @@ function utilitiesShowHide() {
     x.animate({ height: 0, 'padding-top': '0px', 'padding-bottom': '0px' }, 500, function(){
       x[0].style.display = "none";
       x[0].style.opacity = 0;
+      $('.utilities-title').animate({ 'border-bottom-left-radius': '10px', 'border-bottom-right-radius': '10px' });
     });
   }
 }
@@ -165,6 +173,7 @@ function livingCostsShowHide() {
   var x = $("#box-livingCosts");
   if (x.height() == 0) {
     x[0].style.display = "block";
+    $('.livingCosts-title').animate({ 'border-bottom-left-radius': '0px', 'border-bottom-right-radius': '0px' });
     x.animate({ height: heights[3], 'padding-top': '19px', 'padding-bottom': '19px' }, 500, function(){
       x.animate({ opacity: 1 }, 500);
     });
@@ -172,6 +181,7 @@ function livingCostsShowHide() {
     x.animate({ height: 0, 'padding-top': '0px', 'padding-bottom': '0px' }, 500, function(){
       x[0].style.display = "none";
       x[0].style.opacity = 0;
+      $('.livingCosts-title').animate({ 'border-bottom-left-radius': '10px', 'border-bottom-right-radius': '10px' });
     });
   }
 }
