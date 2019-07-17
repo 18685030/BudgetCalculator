@@ -33,11 +33,7 @@ var total;
 
 var points;
 
-var heights = [];
-
-$(document).ready(function(){
-  setHeights();
-});
+var heights = [165, 216, 369, 318];
 
 //Calculations to add elements
 
@@ -83,30 +79,30 @@ function add() {
       $("#result").css("color", "red");
       $(".results").css("display", "block");
       var str = "You have not entered any values for your outgoings. Please try again.";
-      document.getElementById("result").innerHTML = str
+      document.getElementById("result").innerHTML = str;
   } else if (totalIncome == 0) {
       $("#result").css("color", "red");
       $(".results").css("display", "block");
       var str = "You have not entered any values for your income. Please try again.";
-      document.getElementById("result").innerHTML = str
+      document.getElementById("result").innerHTML = str;
   } else if (totalOutgoings > totalIncome) {
       $("#result").css("color", "red");
       $(".results").css("display", "block");
       points = 0;
       var str = "You have a total of £" + total + " remaining. Your outgoings are greater than your income. Have another look at how you can balance your budget.";
-      document.getElementById("result").innerHTML = str
+      document.getElementById("result").innerHTML = str;
   } else if ((totalOutgoings > (totalIncome * 0.8)) && (totalOutgoings < totalIncome))  {
       $("#result").css("color", "orange");
       $(".results").css("display", "block");
       points = 25;
       var str = "You have a total of £" + total+ " remaining. Your outgoings are greater than 80% of your income. Be careful.";
-      document.getElementById("result").innerHTML = str
+      document.getElementById("result").innerHTML = str;
   } else {
       $("#result").css("color", "green");
       $(".results").css("display", "block");
       points = 40;
       var str = "You have a total of £" + total+ " remaining. Your costs are well below your income. Well done.";
-      document.getElementById("result").innerHTML = str
+      document.getElementById("result").innerHTML = str;
   }
 }
 
@@ -119,17 +115,6 @@ function submit(){
 document.getElementById('result').innerHTML = total;
 
 //Collapsable content
-
-function setHeights(){
-  var x = $("#box-income");
-  heights[0] = x.height();
-   x = $("#box-social");
-  heights[1] = x.height();
-   x = $("#box-utilities");
-  heights[2] = x.height();
-   x = $("#box-livingCosts");
-  heights[3] = x.height();
-}
 
 function incomeShowHide() {
   var x = $("#box-income");

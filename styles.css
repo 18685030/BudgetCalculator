@@ -129,6 +129,13 @@ input {
   padding: 19px;
 }
 
+#box-social, #box-utilities, #box-livingCosts {
+  height: 0;
+  padding: 0;
+  opacity: 0;
+  display: none;
+}
+
 .active, .collapsible:hover {
   background-color: #555;
 }
