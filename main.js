@@ -78,30 +78,38 @@ function add() {
   if (totalOutgoings == 0) {
       $("#result").css("background-color", "#EC1010");
       $(".results").css("display", "block");
-      $(".submitButton").css("disabled", "true");
+      $("#submitButton").attr("disabled", true);
+      $('#submitButton').css("background-color", "#A4A6A8");
       var str = "You have not entered any values for your outgoings. Please try again.";
       document.getElementById("result").innerHTML = str;
   } else if (totalIncome == 0) {
       $("#result").css("background-color", "#EC1010");
       $(".results").css("display", "block");
-      $(".submitButton").css("disabled", "true");
+      $("#submitButton").attr("disabled", true);
+      $('#submitButton').css("background-color", "#A4A6A8");
       var str = "You have not entered any values for your income. Please try again.";
       document.getElementById("result").innerHTML = str;
   } else if (totalOutgoings > totalIncome) {
       $("#result").css("background-color", "#EC1010");
       $(".results").css("display", "block");
+      $("#submitButton").attr("disabled", false);
+      $('#submitButton').css("background-color", "#002147");
       points = 0;
       var str = "You have a total of £" + total + " remaining. Your outgoings are greater than your income. Have another look at how you can balance your budget.";
       document.getElementById("result").innerHTML = str;
-  } else if ((totalOutgoings > (totalIncome * 0.8)) && (totalOutgoings < totalIncome))  {
+  } else if ((totalOutgoings > (totalIncome * 0.8)) && (totalOutgoings <= totalIncome))  {
       $("#result").css("background-color", "#EC7610");
       $(".results").css("display", "block");
+      $("#submitButton").attr("disabled", false);
+      $('#submitButton').css("background-color", "#002147");
       points = 25;
       var str = "You have a total of £" + total+ " remaining. Your outgoings are greater than 80% of your income. Be careful.";
       document.getElementById("result").innerHTML = str;
   } else {
       $("#result").css("background-color", "#10EC10");
       $(".results").css("display", "block");
+      $("#submitButton").attr("disabled", false);
+      $('#submitButton').css("background-color", "#002147");
       points = 40;
       var str = "You have a total of £" + total+ " remaining. Your costs are well below your income. Well done.";
       document.getElementById("result").innerHTML = str;
@@ -110,7 +118,7 @@ function add() {
 
 //submit deepkink into Mendix. Assign points into deeplink.
 function submit(){
-  window.top.location = "http://localhost:8080/link/completeBudget?points=" + points;
+  window.top.location = "https://countdowntolincoln100-sandbox.mxapps.io/link/completeBudget?points=" + points;
 }
 
 
