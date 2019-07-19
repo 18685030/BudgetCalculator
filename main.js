@@ -118,7 +118,7 @@ function add() {
 
 //submit deepkink into Mendix. Assign points into deeplink.
 function submit(){
-  window.top.location = "http://localhost:8080/link/completeBudget?points=" + points;
+  window.top.location = "https://countdowntolincoln100-sandbox.mxapps.io/link/completeBudget?points=" + points;
 }
 
 
